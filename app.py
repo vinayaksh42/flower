@@ -7,6 +7,9 @@ import numpy as np
 import random
 from io import BytesIO
 
+import os
+
+
 
 app = Flask(__name__)
 
@@ -96,5 +99,6 @@ def flower_image():
 
 # Run the app
 if __name__ == "__main__":
-    app.run(debug=True, port=8004)
+    port = int(os.environ.get("PORT", 10000))  # default to 10000
+    app.run(host="0.0.0.0", port=port)
 
